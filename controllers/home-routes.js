@@ -7,11 +7,11 @@ router.get('/', (req, res) => {
                 'id',
                 'title',
                 'content',
-                'date-created'
+                'date_created'
             ],
             include: [{
                     model: Comment,
-                    attributes: ['id', 'text', 'post_id', 'user_id', 'date_created'],
+                    attributes: ['id', 'text', 'post_id', 'user_id'],
                     include: {
                         model: User,
                         attributes: ['username']
@@ -58,7 +58,7 @@ router.get('/post/:id', (req, res) => {
             ],
             include: [{
                     model: Comment,
-                    attributes: ['id', 'text', 'post_id', 'user_id', 'date_created'],
+                    attributes: ['id', 'text', 'post_id', 'user_id'],
                     include: {
                         model: User,
                         attributes: ['username']
@@ -86,7 +86,7 @@ router.get('/post/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
-router.get('/comments', (req, res) => {
+router.get('/comment', (req, res) => {
     Post.findOne({
             where: {
                 id: req.params.id
@@ -99,7 +99,7 @@ router.get('/comments', (req, res) => {
             ],
             include: [{
                     model: Comment,
-                    attributes: ['id', 'text', 'post_id', 'user_id', 'date_created'],
+                    attributes: ['id', 'text', 'post_id', 'user_id'],
                     include: {
                         model: User,
                         attributes: ['username']
@@ -118,7 +118,7 @@ router.get('/comments', (req, res) => {
             }
             const post = dbPostData.get({ plain: true });
 
-            res.render('comments', { post, loggedIn: req.session.loggedIn });
+            res.render('comment', { post, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err);

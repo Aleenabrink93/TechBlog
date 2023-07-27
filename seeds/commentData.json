@@ -1,0 +1,22 @@
+[
+    {
+        "text": "Wow",
+        "user_id": 2,
+        "post_id": 3
+        
+    },
+    {
+        "text": "Nice",
+        "user_id": 2,
+        "post_id": 5
+        
+    },
+    {
+        "text": "Awesome",
+        "user_id": 4,
+        "post_id": 1
+        
+    }
+  
+]
+
